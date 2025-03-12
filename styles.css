@@ -1,0 +1,245 @@
+/* Загальні стилі */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: url('images/fon.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #ffe6cc;
+  min-height: 100vh;
+}
+
+/* Фонова обгортка */
+.overlay {
+    background-color: rgba(26, 15, 8, 0.88);
+    min-height: 100vh;
+}
+
+/* Хедер */
+header {
+    text-align: center;
+    padding: 20px 20px 20px;
+}
+
+header h1 {
+    font-size: 2.8em;
+    color: #ffa726;
+    margin: 0;
+}
+
+.welcome {
+    text-align: center;
+    font-size: 2em;
+    margin-top: 15px;
+    color: #ffcc80;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000;
+}
+
+/* Кнопка "Переглянути меню" */
+header .menu-button {
+    background-color: #ff9800;
+    color: #1a0f08;
+    border: none;
+    padding: 14px 24px;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.2s ease;
+}
+
+header .menu-button:hover {
+    background-color: #e68900;
+}
+
+/* Кнопка "Переглянути меню" */
+header .menu-button {
+    background-color: #ff9800;
+    color: #1a0f08;
+    border: none;
+    padding: 14px 24px;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.2s ease;
+}
+
+header .menu-button:hover {
+    background-color: #ffb74d;
+}
+
+/* Головне зображення */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: url('images/fon.png') no-repeat center center;
+    background-size: contain;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+/* Контейнер кнопок меню */
+.menu-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+}
+
+.menu-button {
+    background-color: #ff9800;
+    color: #1a0f08;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+    flex: 1 1 calc(50% - 10px);
+    box-sizing: border-box;
+}
+
+.menu-button:hover {
+    background-color: #ffb74d;
+}
+
+/* Секції меню */
+.menu-section {
+    padding: 20px;
+    display: none;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #4e342e;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.menu-section h2 {
+    font-size: 1.8em;
+    border-bottom: 2px solid #ff9800;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.menu-section h3 {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #ff9800;
+    border-bottom: 1px solid #d7ccc8;
+    padding-bottom: 4px;
+}
+
+.menu-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-section li {
+    padding: 8px 0;
+    border-bottom: 1px solid #d7ccc8;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1em;
+}
+
+.menu-section li span {
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* Футер */
+footer {
+    background-color: rgba(255, 152, 0, 0.1);
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9em;
+    color: #ffe6cc;
+    position: relative;
+}
+
+/* Адаптація */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    .welcome {
+        font-size: 1.5em;
+    }
+
+    .menu-button {
+        font-size: 0.95em;
+        padding: 10px 14px;
+        flex: 1 1 100%;
+    }
+
+    .menu-section {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .menu-section h2 {
+        font-size: 1.5em;
+    }
+
+    footer {
+        font-size: 0.8em;
+    }
+}
+
+
+/* === Reservation Section === */
+.reservation-section {
+  background-color: rgba(255, 255, 255, 0.95);
+  color: #4e342e;
+  padding: 30px;
+  border-radius: 15px;
+  max-width: 600px;
+  margin: 40px auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.reservation-section h2 {
+  text-align: center;
+  color: #ff9800;
+  margin-bottom: 20px;
+}
+
+.reservation-form input,
+.reservation-form button {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+.reservation-form input {
+  background-color: #f5f5f5;
+}
+
+.reservation-form button {
+  background-color: #ff9800;
+  color: #1a0f08;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.reservation-form button:hover {
+  background-color: #ffb74d;
+}.menu-section img {
+  border-radius: 20px;
+  margin-right: 20px;
+  vertical-align: middle;
+}
+

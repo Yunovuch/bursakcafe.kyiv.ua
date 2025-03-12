@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Меню BURSAK</title>
+<style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('images/fon.png') no-repeat center top fixed;
+      background-size: contain;
+      color: #ffe6cc;
+    }
+
+    .overlay {
+      background-color: rgba(26, 15, 8, 0.7);
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 {
+      font-size: 2.8em;
+      color: #ffa726;
+      margin: 0;
+    }
+
+    .welcome {
+      text-align: center;
+      font-size: 2em;
+      margin-top: 15px;
+      color: #ffcc80;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px #000;
+    }
+
+    .menu-buttons-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 20px;
+    }
+
+    .menu-button {
+      background-color: #ff9800;
+      color: #1a0f08;
+      border: none;
+      padding: 12px 20px;
+      cursor: pointer;
+      font-size: 1em;
+      border-radius: 5px;
+      transition: background-color 0.2s ease;
+      flex: 1 1 calc(50% - 10px);
+      box-sizing: border-box;
+    }
+
+    .menu-button:hover {
+      background-color: #ffb74d;
+    }
+
+    .menu-section {
+      padding: 20px;
+      display: none;
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #4e342e;
+      border-radius: 10px;
+      margin: 20px auto;
+      max-width: 800px;
+    }
+
+    .menu-section h2 {
+      font-size: 1.8em;
+      border-bottom: 2px solid #ff9800;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+
+    .social-icons {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .social-icon {
+      font-size: 24px;
+      color: #777226;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .social-icon:hover {
+      transform: scale(1.1);
+      color: #777570;
+    }
+
+    footer {
+      background-color: rgba(255, 152, 0, 0.1);
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9em;
+      color: 025000c;
+    }
+
+}/* Загальні стилі */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: url('images/fan.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #ffe6cc;
+  min-height: 100vh;
+}
+
+/* Фонова обгортка */
+.overlay {
+    background-color: rgba(26, 15, 8, 0.88);
+    min-height: 100vh;
+}
+
+/* Хедер */
+header {
+    text-align: center;
+    padding: 20px 20px 20px;
+}
+
+header h1 {
+    font-size: 2.8em;
+    color: #ffa726;
+    margin: 0;
+}
+
+.welcome {
+    text-align: center;
+    font-size: 2em;
+    margin-top: 15px;
+    color: #ffcc80;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000;
+}
+
+/* Кнопка "Переглянути меню" */
+header .menu-button {
+    background-color: #ff9800;
+    color: #1a0f08;
+    border: none;
+    padding: 14px 24px;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.2s ease;
+}
+
+header .menu-button:hover {
+    background-color: #e68900;
+}
+
+
+/* Адаптація для мобільних пристроїв */
+@media (max-width: 600px) {
+    .social-icons {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .social-icon {
+        font-size: 24px;
+    }
+}
+
+    @media (max-width: 300px) {
+      header h1 {
+        font-size: 2em;
+      }
+
+      .welcome {
+        font-size: 1.5em;
+      }
+
+      .menu-button {
+        font-size: 0.95em;
+        padding: 10px 14px;
+      }
+
+      .menu-section {
+        margin: 10px;
+        padding: 15px;
+      }
+
+      .menu-section h2 {
+        font-size: 1.5em;
+      }
+
+      footer {
+        font-size: 0.8em;
+      }
+
+    }.menu-section img {
+  border-radius: 20px;
+  margin-right: 20px;
+  vertical-align: middle;
+}
+
+
+</style>
+</head>
+<body>
+<div class="overlay">
+<header>
+<h1>ЛАСКАВО ПРОСИМО В BURSAK</h1>
+<p class="welcome">ПРАЦЮЄМО з 10:00 до 21:00!</p>
+<button class="menu-button" onclick="scrollToMenu()">МЕНЮ</button>
+</header>
+<div class="social-icons">
+  <a class="social-icon" href="https://www.tiktok.com/@bursak.cafe" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+  <a class="social-icon" href="https://www.instagram.com/cafe_bursak" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+</div>
+<main id="menu">
+
+<main id="menu">
+<div class="menu-buttons-container">
+<button class="menu-button" onclick="toggleMenu('breakfast')">СНІДАНКИ</button>
+<button class="menu-button" onclick="toggleMenu('appetizers')">ЗАКУСКИ</button>
+<button class="menu-button" onclick="toggleMenu('snacks_for_beer')">ЗАКУСКИ ДО ПИВА</button>
+<button class="menu-button" onclick="toggleMenu('deruny')">ДЕРУНИ</button>
+<button class="menu-button" onclick="toggleMenu('deruny_xxl')">ДЕРУНИ XXL</button>
+<button class="menu-button" onclick="toggleMenu('bruskety')">БРУСКЕТИ</button>
+<button class="menu-button" onclick="toggleMenu('salads')">САЛАТИ</button>
+<button class="menu-button" onclick="toggleMenu('first-courses')">ПЕРШІ СТРАВИ</button>
+<button class="menu-button" onclick="toggleMenu('meat_fish')">ОСНОВНІ СТРАВИ</button>
+<button class="menu-button" onclick="toggleMenu('side-dishes')">ГАРНІРИ</button>
+<button class="menu-button" onclick="toggleMenu('ravioli')">РАВІОЛІ</button>
+<button class="menu-button" onclick="toggleMenu('pasta')">ПАСТА</button>
+<button class="menu-button" onclick="toggleMenu('piсa')">ПІЦА</button>
+<button class="menu-button" onclick="toggleMenu('pita')">ПІТА</button>
+<button class="menu-button" onclick="toggleMenu('bar')">БАР</button>
+<button class="menu-button" onclick="toggleMenu('вessert')">ДЕСЕРТ</button>
+<button class="menu-button" onclick="toggleMenu('obid')">Бізнес ланчі з 12:00 до 16:00</button>
+
+</div>
+<section class="menu-section" id="breakfast">
+<h2>СНІДАНКИ</h2>
+<ul>
+<li>Фірмові сирники 250г <span>150 грн</span></li>
+<li>Вівсянка з яйцем пашот та пармезаном 350г <span>150 грн</span></li>
+<li>Вівсянка на молоці 350г <span>120 грн</span></li>
+<li>Свіжовипечений круасан 100г <span>70 грн</span></li>
+<li>Глазуха 200г <span>90 грн</span></li>
+<li>Омлет 250г <span>90 грн</span></li>
+<li>Скрембл 250г <span>90 грн</span></li>
+</ul>
+<!-- Додатки до сніданків -->
+<h3>Додатки до сніданків</h3>
+<ul>
+<li>шинка,бекон,мисливські ковбаски,куряче філе 40г <span>50 грн</span></li>
+<li>лосось с/с,креветка,авокадо 40г  <span>60 грн</span></li>
+<li>моцарела,пармезан,брі,фета 40г <span>40 грн</span></li>
+<li>шампіньйон,томати,огірки,цибуля 40г  <span>25 грн</span></li>
+<li>Хлібна корзина 100г <span>50 грн</span></li>
+</ul>
+</section>
+
+
+<section class="menu-section" id="appetizers">
+<h2>ЗАКУСКИ</h2>
+<ul>
+<li>Антипасто(парма,салямі,оливки,пармезан,в'ялені томати,фаршировані перчики) 240г <span>300 грн</span></li>
+<li>Сирне плато(горгонзола,брі,шевре,пармезан,мед) 240г <span>250 грн</span></li>
+</ul>
+</section>
+
+
+<section class="menu-section" id="snacks_for_beer">
+<h2>ЗАКУСКИ ДО ПИВА</h2>
+<ul>
+<li>Сухарики з чесночним соусом 200г <span>80 грн</span></li>
+<li>Чіпси з лаваша 100г <span>90 грн</span></li>
+<li>Сирні кульки з моцарелой  та соусом 200г <span>140 грн</span></li>
+<li>Кальмар-фрі з соусом 200г <span>200 грн</span></li>
+<li>Бастурма 60г <span>140 грн</span></li>
+<li>Фісташки 70г <span>80 грн</span></li>
+<li>Арахіс 70г <span>80 грн</span></li>
+</ul>
+</section>
+
+
+<section class="menu-section" id="deruny">
+<h2>ДЕРУНИ</h2>
+<ul>
+<li>Деруни з сметаною 250г <span>150 грн</span></li>
+<li>Деруни з грибним соусом 250г <span>170 грн</span></li>
+<li>Деруни з лососем та сирним соусом 250г <span>200 грн</span></li>
+</ul></section>
+
+
+<section class="menu-section" id="deruny_xxl">
+<h2>ДЕРУНИ XXL </h2>
+<ul>
+<li>Деруни з ковбасками та грибним соусом під сиром 250г <span>200 грн</span></li>
+<li>Деруни з беконом під сиром 250г <span>200 грн</span></li>
+<li>Деруни з куркою під сиром 250г <span>200 грн</span></li>
+<li>Деруни з сиром та зеленю 250г <span>200 грн</span></li>
+</ul></section>
+
+
+<section class="menu-section" id="bruskety">
+<h2>БРУСКЕТИ</h2>
+<ul>
+<li>Брускет з лососем та руколою 130г <span>160 грн</span></li>
+<li>Брускет з креветкою та авокадо 130г <span>160 грн</span></li>
+<li>Брускет з пармою 130г <span>160 грн</span></li>
+</ul></section>
+
+
+<section class="menu-section" id="salads">
+<h2>САЛАТИ</h2>
+<ul>
+<li>Цезарь  класичний з куркою 220г <span>220 грн</span></li>
+<li>Цезарь з креветками 220г <span>270 грн</span></li>
+<li>Цезарт з лососем 220г <span>250 грн</span></li>
+<li>Салат з морепродуктами, сиром горгонзола та апельсином 220г <span>270 грн</span></li>
+<li>Салат Грецький 220г <span>200 грн</span></li>
+<li>Салат з телятиною та хумусом 230г <span>280 грн</span></li>
+<li>Салат з фалафелем 200г <span>200 грн</span></li>
+<li>Салат з качиною грудкою та авокадо 220г <span>270 грн</span></li>
+</ul>
+</section>
+
+
+<section class="menu-section" id="first-courses">
+<h2>ПЕРШІ СТРАВИ</h2>
+<ul>
+<li>БОРЩ УКРАЇНСЬКИЙ 300г <span>150 грн</span></li>
+<li>Надлегкий бульйон з перепилиними яйцями та локшиною 300г <span>120 грн</span></li>
+<li>Бограч 300г <span>170 грн</span></li>
+<li>Крем суп грибний 300г <span>150 грн</span></li>
+<li>Суп з морепродуктами ( на томатній або вершковій основі ) 300г <span>290 грн</span></li>
+</ul></section>
+
+
+<section class="menu-section" id="meat_fish">
+<h2>ОСНОВНІ СТРАВИ</h2>
+<ul>
+<li>Стейк з лосося з кіноа та бобами едомаме та соусом готандез 350г <span>380 грн</span></li>
+<li>Дорадо з запеченими  овочами 350г <span>300 грн</span></li>
+<li>Стейк з телятини з овочами гриль 280г <span>350 грн</span></li>
+<li>Шашлик курячий з соусом BBQ та картоплею по-селянській 280г <span>220 грн</span></li>
+<li>Телятина з грибами в перечному соусі з картопляним пюре 300г <span>280 грн</span></li>
+<li>Ребра сувід з запеченою картоплею 350г <span>270 грн</span></li>
+<li>Качина грудка з ягідним к'юлі та карамелізованими яблуками та грушею 250г <span>320 грн</span></li>
+<li>Шніцель свинний з картопляним пюре та вершково гірчичним соусом 300г <span>280 грн</span></li>
+<li>Телячі щічки з картоплею робюшон 250г <span>230 грн</span></li>
+</ul></section>
+
+
+<section class="menu-section" id="side-dishes">
+<h2>ГАРНІРИ</h2>
+<ul>
+<li>Картопля фрі 180г <span>90 грн</span></li>
+<li>Картопля по-селянськи 180г <span>80 грн</span></li>
+<li>Картопляне пюре 180г <span>80 грн</span></li>
+<li>Картопляне пюре з трефелем 190г <span>90 грн</span></li>
+<li>Овочі гриль 180г <span>110 грн</span></li>
+<li>Броколі в вершковому соусі 150г <span>100 грн</span></li>
+</ul></section>
+
+
+<section class="menu-section" id="ravioli">
+<h2>РАВІОЛІ</h2>
+<ul>
+<li>Равіолі з телятиною 250г <span>240 грн</span></li>
+<li>Равіолі з  лососем та бобами едомаме 250г <span>250 грн</span></li>
+<li>Равіолі з рікотою та шпинатом 250г <span>250 грн</span></li>
+</ul></section>
+
+
+<section class="menu-section" id="pasta">
+<h2>ПАСТА</h2>
+<ul>
+<li>Паста з морепродуктами 250г <span>270 грн</span></li>
+<li>Паста з лососем 250г <span>230 грн</span></li>
+<li>Паста  з телятиною 250г <span>220 грн</span></li>
+<li>Паста карбонара 250г <span>200 грн</span></li>
+<li>Паста чотири сири 250г <span>200 грн</span></li>
+</ul></section>
+
+
+<section class="menu-section" id="piсa">
+<h2>ПІЦА</h2>
+<ul>
+<li>Піца Цезарь 450г <span>250 грн</span></li>
+<li>Піца з пармою 450г <span>270 грн</span></li>
+<li>Піца чотири сири 450г <span>250 грн</span></li>
+<li>Піца з томленою телятиною та солоним огірком  450г <span>260 грн</span></li>
+<li>Піца папероні 450г <span>250 грн</span></li>
+<li>Піца з лососем та гарганзолою 450г <span>300 грн</span></li>
+<li>Піца з креветкою та фетою 450г <span>280 грн</span></li>
+<li>Піца маргарита 350г <span>180 грн</span></li>
+</ul></section>
+
+
+<section class="menu-section" id="pita">
+<h2>ПІТА</h2>
+<ul>
+<li>Піта з телятиною 200г <span>200 грн</span></li>
+<li>Піта з куркою 200г <span>180 грн</span></li>
+<li>Піта з лососем 200г <span>250 грн</span></li>
+<li>Піта з фалафелем 200г <span>170 грн</span></li>
+</ul></section>
+
+
+<section class="menu-section" id="bar">
+<h2>БАР</h2>
+<!-- ГОРІЛКА -->
+<h3>ГОРІЛКА</h3>
+<ul>
+<li>Nemiroff особлива 50мл...500мл <span>45грн...450грн</span></li>
+<li>Nemiroff Premium 50мл...500мл <span>60грн...600грн</span></li>
+</ul>
+<!-- ДЖИН, ТЕКІЛА -->
+<h3>ДЖИН, ТЕКІЛА</h3>
+<ul>
+<li>Rooster Rojo Blanco (Текіла)   50мл...500мл <span>130грн...1300грн</span></li>
+<li>Beefeater (Джин)    500мл...500мл <span>130грн...1300грн</span></li>
+<!-- РОМ -->
+<h3>РОМ</h3>
+<ul>
+<li>Caribba Blanko  50мл...500мл <span>120грн...1200грн</span></li>
+<li>Captain Morgan  50мл...500мл <span>120грн...1200грн</span></li>
+</ul>
+<!-- КОНЬЯК -->
+<h3>КОНЬЯК</h3>
+<ul>
+<li>Закарпатський 50мл...500мл <span>90грн...900грн</span></li>
+<li>Martell VSOP  50мл...500мл <span>300грн...3000грн</span></li>
+</ul>
+<!-- ВИНА -->
+<h3>ВИНА</h3>
+<ul>
+<!-- ГРУЗІЯ -->
+<h3>ГРУЗІЯ</h3>
+<ul>
+<li>Кіндзмараулі (ч/с)  150мл...750мл <span>150грн...750грн</span></li>
+<li>Твіші (біле н/с)    150мл...750мл <span>135грн...675грн</span></li>
+<li>Мукузані  (ч/с)     150мл...750мл <span>135грн...675грн</span></li>
+</ul>
+<!-- ІТАЛІЯ -->
+<h3>ІТАЛІЯ</h3>
+<ul>
+<li>Кіндзмараулі (ч/с)  150мл...750мл <span>150грн...750грн</span></li>
+<li>Твіші (біле н/с)    150мл...750мл <span>135грн...675грн</span></li>
+<li>Мукузані  (ч/с)     150мл...750мл <span>135грн...675грн</span></li>
+</ul>
+<!-- ЧІЛІ -->
+<h3>ЧІЛІ</h3>
+<ul>
+<li>Гато Негро (біле н/с)       150мл...750мл <span>135грн...675грн</span></li>
+<li>Гато Негро (червоне н/с)    150мл...750мл <span>135грн...675грн</span></li>
+</ul>
+<!-- ІГРИСТІ ВИНА -->
+<h3>ІГРИСТІ ВИНА</h3>
+<ul>
+<li>Prosecco (ІТАЛІЯ) на розлив       150мл <span>150грн </span></li>
+</ul>
+<!-- ПИВО -->
+<h3>ПИВО</h3>
+<ul>
+<li>Львівське світле    300мл...500мл <span>60грн...80грн</span></li>
+<li>Grimbergen Blanche  (Бельгія)    300мл...500мл <span>100грн...130грн</span></li>
+<li>Grimbergen Double Ambree  (Бельгія)    300мл...500мл <span>100грн...130грн</span></li>
+<li>Сидр SOMERSBY (Чорниця)  300мл...500мл <span>60грн...80грн</span></li>
+<li>Безалкогольне Carlsberg  500мл <span>80грн</span></li>
+</ul>
+<!-- АЛКОГОЛЬНІ КОКТЕЛІ -->
+<h3> АЛКОГОЛЬНІ КОКТЕЛІ </h3>
+<ul>
+<li>Джин-тонік <span>150грн</span></li>
+<li>Апероль Шприц <span>210грн</span></li>
+<li>Негроні  <span>170грн</span></li>
+<li>Лонг Айленд<span>200грн</span></li>
+<li>Мохіто <span>180грн</span></li>
+<li>Куба лібре <span>150грн</span></li>
+<li>Віскі кола  <span>150грн</span></li>
+<li>Лонг Айленд<span>150грн</span></li>
+<li>Секс на пляжі <span>150грн</span></li>
+<li>Маргарита <span>190грн</span></li>
+<li>Кровава МЕРІ  <span>150грн</span></li>
+<li>Голуба Лагуна<span>180грн</span></li>
+</ul>
+<!-- БЕЗАЛКОГОЛЬНІ НАПОЇ -->
+<h3> БЕЗАЛКОГОЛЬНІ НАПОЇ </h3>
+<ul>
+<li>Айс-Оранж <span>120грн</span></li>
+<li>Еспресо-тонік<span>120грн</span></li>
+<li>Мілк-Шейк  <span>160грн</span></li>
+<li>Мохіто <span>100грн</span></li>
+<li>Мохіто імбірний <span>110грн</span></li>
+<li>Мохіто клубнічний <span>110грн</span></li>
+<li>Лимонад цитрусовий <span>90грн</span></li>
+<li>Лимонад імбірний <span>100грн</span></li>
+<li>Сік в асортименті <span>50грн</span></li>
+<li>Фруктовий напій <span>40грн</span></li>
+<li>Пепсі  <span>60грн</span></li>
+<li>Боржомі<span>90грн</span></li>
+<li>Моршинська газ/негаз <span>50грн</span></li>
+</ul>
+<!-- КАВА ТА ЧАЙ-->
+<h3> КАВА ТА ЧАЙ </h3>
+<ul>
+<li>Еспресо <span>60грн</span></li>
+<li>Американо<span>60грн</span></li>
+<li>Латте  <span>80грн</span></li>
+<li>Капучино <span>70грн</span></li>
+<li>Флет уайт <span>100грн</span></li>
+<li>Допіо <span>100грн</span></li>
+<li>Глясе <span>80грн</span></li>
+<li>Бейбічіно <span>70грн</span></li>
+<li>Чай в асортименті <span>80грн</span></li>
+</ul></ul></ul></section>
+
+<section class="menu-section" id="вessert">
+
+<h2>ДЕСЕРТИ</h2>
+
+<!-- ДЕСЕРТИ-->
+<h3> ДЕСЕРТИ </h3>
+<ul>
+<li>ДЕСЕРТИ ЗАПИТУЙ В ОФІЦІАНТА <span>150грн</span></li>
+</ul></section>
+
+<section class="menu-section" id="obid">
+<h2>Бізнес ланчі з 12:00 до 16:00</h2>
+<ul>
+
+ <li>
+  <img src="images/obid.png" alt="БІЗНЕС ЛАНЧІ" width="100">
+ БІЗНЕС ЛАНЧІ З 12:00 до 16:00 _ <span>230 грн</span>
+</li>
+
+</section>
+
+<section id="reservation" class="menu-section" style="display:block; background-color: rgba(255,255,255,0.9); color:#000;">
+  <h2>Бронювання</h2>
+  <form style="display: flex; flex-direction: column; gap: 10px;">
+    <input type="text" placeholder="Ваше ім’я" required>
+    <input type="tel" placeholder="Телефон" required>
+    <input type="datetime-local" required>
+    <button type="submit" class="menu-button">Забронювати</button>
+  </form>
+    </section>
+    </main>
+<footer>
+<p>© Усі права захищені ©2025 м.Київ вул. Терещенківська 21 тел:(+380)503532035.</p>
+</footer>
+</div>
+<script>
+    function toggleMenu(id) {
+      const sections = document.querySelectorAll('.menu-section');
+      sections.forEach(section => {
+        section.style.display = 'none';
+      });
+
+      const selectedSection = document.getElementById(id);
+      if (selectedSection) {
+        selectedSection.style.display = 'block';
+        selectedSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function scrollToMenu() {
+      const menu = document.getElementById('menu');
+      if (menu) {
+        menu.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  </script>
+</body>
+</body></html>
